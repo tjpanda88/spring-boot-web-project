@@ -9,23 +9,27 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "STOCK_LIST")
-public class StockList implements Serializable {
+@Table(name = "USER")
+public class User implements Serializable {
 
 	private static final long serialVersionUID = -8528854691896111209L;
 
 	@Id
 	@NotNull
-	@Column(nullable = false, name = "STOCK_CODE", length = 6)
-	private String code;
+	@Column(nullable = false, name = "USER_ID", length = 6)
+	private String id;
 	
 	@NotNull
-	@Column(nullable = false, name = "STOCK_TYPE", length = 2)
+	@Column(nullable = false, name = "USER_TYPE", length = 2)
 	private String type;
 
 	@NotNull
-	@Column(nullable = false, name = "STOCK_NAME", length = 30)
+	@Column(nullable = false, name = "USER_NAME", length = 30)
 	private String name;
+	
+	@NotNull
+	@Column(nullable = false, name = "USER_PASSWORD", length = 30)
+	private String password;
 
 	public String getType() {
 		return type;
@@ -35,12 +39,12 @@ public class StockList implements Serializable {
 		this.type = type;
 	}
 
-	public String getCode() {
-		return code;
+	public String getId() {
+		return id;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -50,5 +54,15 @@ public class StockList implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
 
 }
