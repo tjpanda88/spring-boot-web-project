@@ -2,6 +2,8 @@ package com.project.app.web.searchuser;
 
 import lombok.extern.slf4j.Slf4j;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
@@ -14,12 +16,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.project.app.domain.model.User;
+import com.project.app.domain.service.user.UserService;
+
 @Slf4j
 @Controller
 @RequestMapping(value = "searchuser")
 @SessionAttributes(types = SearchUserForm.class)
 public class SearchUserController {
 	
+	@Autowired
+	UserService userService;
 	/**
      * pre-initialization of form backed bean
      * @param model
@@ -43,6 +50,8 @@ public class SearchUserController {
     public String search(@Validated SearchUserForm searchTourForm,
             BindingResult result, Model model,
             @PageableDefault Pageable pageable) {
-		return "";
+		Page<User> page = userService.searchUser(pageable);
+        model.addAttribute("page", page);
+		return "searchuser/searchForm";
 	}
 }

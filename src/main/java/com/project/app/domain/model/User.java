@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "USER")
+@Table(name = "USER_TABLE")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = -8528854691896111209L;
