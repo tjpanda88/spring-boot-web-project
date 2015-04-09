@@ -15,7 +15,11 @@ public class UserServiceImpl implements UserService {
 	UserRepository userRepository;
 
 	@Override
-    public Page<User> searchUser(Pageable pageable) {
-        return userRepository.findAll(pageable);
-        		}
+	public Page<User> searchUser(Pageable pageable) {
+		return userRepository.findAll(pageable);
+	}
+	
+	public User saveUser(User user) {
+		return userRepository.save(user);
+	}
 }

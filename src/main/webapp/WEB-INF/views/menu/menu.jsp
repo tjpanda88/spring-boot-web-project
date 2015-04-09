@@ -16,5 +16,22 @@
 				<input type="hidden" name="form" />
 			</fieldset>
 		</form>
+		
+		<form
+				action="${pageContext.request.contextPath}/adduser/create"
+				method="get">
+				<fieldset class="notice">
+					<div class="span-5">
+						<input id="customerRegisterBtn" style="width: 150px;" type="submit"
+							value="add user">
+					</div>
+					<div class="span-18 last">
+						<p>
+							AddUser
+						</p>
+					</div>
+					<input type="hidden" name="form" />
+				</fieldset>
+			</form>
 	</div>
 </div>
