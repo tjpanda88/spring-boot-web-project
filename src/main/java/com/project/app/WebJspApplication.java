@@ -5,10 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.ImportResource;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
 @ImportResource("classpath*:spring/*.xml")
+@PropertySource("classpath:application-config.properties")
 public class WebJspApplication extends SpringBootServletInitializer {
 
 	@Override
